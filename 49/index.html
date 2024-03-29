@@ -43,7 +43,26 @@
     </div>
 
     <script>
+        // Найти article
+        const article = document.querySelector('.article');
 
+        // Найти все параграфы внутри article
+        const paragraphs = article.querySelectorAll('p');
+
+        // Найти первый элемент внутри article и добавить класс highlight
+        const firstElement = article.querySelector('div');
+        firstElement.classList.add('highlight');
+
+        // Перебрать параграфы и добавить класс text-secondary к каждому span
+        paragraphs.forEach(p => {
+            const span = p.querySelector('span');
+            if (span) {
+                span.classList.add('text-secondary');
+            }
+        });
+
+        console.dir(firstElement);
+        paragraphs.forEach(p => console.log(p));
     </script>
 </body>
 </html>

@@ -93,7 +93,12 @@
     <script>
 
         document.querySelector('.form').addEventListener('submit', (e) => {
+            e.preventDefault(); // Отменяем стандартное поведение формы
 
+            const formData = new FormData(e.target); // Создаем объект FormData из формы
+            const data = Object.fromEntries(formData.entries()); // Преобразуем данные формы в объект
+
+            console.log(data); // Выводим данные формы в консоль
         })
 
     </script>

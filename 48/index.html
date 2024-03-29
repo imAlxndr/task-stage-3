@@ -37,7 +37,13 @@
     </div>
 
     <script>
+        // первый элемент первого списка
+        const first = document.querySelector('.container ul:first-child li:first-child');
+        console.dir(first);
 
+        // первые элементы всех списков
+        const list = document.querySelectorAll('.container ul li:first-child');
+        list.forEach(item => console.log(item));
     </script>
 </body>
 </html>

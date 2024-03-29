@@ -43,6 +43,42 @@
 
         const list = document.querySelector('.list')
         const input = document.querySelector('.search__input')
+        const searchBtn = document.querySelector('.search__btn');
+        const clearBtn = document.querySelector('.search__clear');
+
+        // Функция для построения списка
+        function buildList(wordsArray) {
+            list.innerHTML = ''; // Очищаем список
+            wordsArray.forEach(word => {
+                const li = document.createElement('li');
+                li.textContent = word;
+                li.classList.add('list__element');
+                list.appendChild(li);
+            });
+        }
+
+        // Делегирование событий для добавления класса list__element--active
+        list.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                event.target.classList.toggle('list__element--active');
+            }
+        });
+
+        // Обработчик события для кнопки "Найти"
+        searchBtn.addEventListener('click', () => {
+            const searchText = input.value.toLowerCase();
+            const filteredWords = words.filter(word => word.toLowerCase().includes(searchText));
+            buildList(filteredWords);
+        });
+
+        // Обработчик события для кнопки "Очистить"
+        clearBtn.addEventListener('click', () => {
+            buildList(words); // Перестраиваем список
+            input.value = ''; // Очищаем поле ввода
+        });
+
+        // Первоначальное построение списка
+        buildList(words);
 
 
     </script>

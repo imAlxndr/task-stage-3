@@ -41,7 +41,27 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 
     <script>
+        const input = document.querySelector('.js-input');
+        const button = document.querySelector('.js-button');
+        const nameSpan = document.querySelector('.js-name');
 
+        // Функция для установки значения в span и cookie
+        function setName(value) {
+            Cookies.set('name', value, { expires: 3 });
+            nameSpan.textContent = value;
+        }
+
+        // Установка обработчика событий на кнопку "Сохранить"
+        button.addEventListener('click', () => {
+            const name = input.value;
+            setName(name);
+        });
+
+        // Проверка и установка значения из cookie при загрузке страницы
+        const savedName = Cookies.get('name');
+        if (savedName) {
+            nameSpan.textContent = savedName;
+        }
 
     </script>
 </body>

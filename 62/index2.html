@@ -39,7 +39,29 @@
     </div>
 
     <script>
+        const input = document.querySelector('.js-input');
+        const button = document.querySelector('.js-button');
+        const nameSpan = document.querySelector('.js-name');
 
+        // Функция для установки значения в span и localStorage
+        function setName(value) {
+            const data = JSON.stringify({ name: value });
+            localStorage.setItem('name', data);
+            nameSpan.textContent = value;
+        }
+
+        // Установка обработчика событий на кнопку "Сохранить"
+        button.addEventListener('click', () => {
+            const name = input.value;
+            setName(name);
+        });
+
+        // Проверка и установка значения из localStorage при загрузке страницы
+        const savedData = localStorage.getItem('name');
+        if (savedData) {
+            const data = JSON.parse(savedData);
+            nameSpan.textContent = data.name;
+        }
 
     </script>
 </body>

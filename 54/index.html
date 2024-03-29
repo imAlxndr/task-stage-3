@@ -34,7 +34,32 @@
     </div>
 
     <script>
+        const buttonClick = document.querySelector('.js-button-click');
+        const buttonAdd = document.querySelector('.js-button-add');
+        const buttonRemove = document.querySelector('.js-button-remove');
 
+        // Функция, которая будет вызываться при клике на js-button-click
+        const handleClick = () => {
+            alert('CLICK!');
+        };
+
+        // Функция для установки события клика
+        const addClickEvent = () => {
+            buttonClick.addEventListener('click', handleClick);
+            // Удаляем событие, чтобы оно сработало только один раз
+            buttonAdd.removeEventListener('click', addClickEvent);
+        };
+
+        // Устанавливаем событие клика на js-button-add
+        buttonAdd.addEventListener('click', addClickEvent);
+
+        // Функция для удаления события клика
+        const removeClickEvent = () => {
+            buttonClick.removeEventListener('click', handleClick);
+        };
+
+        // Устанавливаем событие клика на js-button-remove
+        buttonRemove.addEventListener('click', removeClickEvent);
     </script>
 </body>
 </html>

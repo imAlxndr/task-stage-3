@@ -68,7 +68,28 @@
 
     <script>
         let activeItem = null
+        const table = document.querySelector('.table');
 
+        table.addEventListener('click', (event) => {
+            const targetTd = event.target.closest('td');
+            if (targetTd) {
+                // Проверяем, является ли кликнутая ячейка текущей активной ячейкой
+                if (activeItem === targetTd) {
+                    // Если да, то убираем класс и очищаем переменную activeItem
+                    targetTd.classList.remove('table__td--active');
+                    activeItem = null;
+                } 
+                else {
+                    // Если нет, то удаляем класс с предыдущей активной ячейки, если она есть
+                    if (activeItem) {
+                        activeItem.classList.remove('table__td--active');
+                    }
+                    // Добавляем класс новой активной ячейке и обновляем activeItem
+                    targetTd.classList.add('table__td--active');
+                    activeItem = targetTd;
+                }
+            }
+        });
     </script>
 </body>
 </html>

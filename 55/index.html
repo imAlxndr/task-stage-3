@@ -96,8 +96,47 @@
     </div>
 
     <script>
+        // Задача 1
+        document.querySelector('.js-input').addEventListener('input', (event) => {
+            console.log('input value:', event.currentTarget.value);
+        });
 
+        document.querySelector('.js-change').addEventListener('change', (event) => {
+            console.log('change value:', event.currentTarget.value);
+        });
 
+        document.querySelector('.js-blur').addEventListener('blur', (event) => {
+            console.log('blur value:', event.currentTarget.value);
+        });
+
+        document.querySelector('.js-focus').addEventListener('focus', (event) => {
+            console.log('focus value:', event.currentTarget.value);
+        });
+
+        // Задача 2
+        document.querySelector('.js-checkbox-1').addEventListener('change', (event) => {
+            console.log('checkbox 1 checked:', event.currentTarget.checked, 'value:', event.currentTarget.value);
+        });
+
+        document.querySelector('.js-checkbox-2').addEventListener('change', (event) => {
+            console.log('checkbox 2 checked:', event.currentTarget.checked, 'value:', event.currentTarget.value);
+        });
+
+        document.querySelector('.js-radio-1').addEventListener('change', (event) => {
+            console.log('radio 1 checked:', event.currentTarget.checked, 'value:', event.currentTarget.value);
+        });
+
+        document.querySelector('.js-radio-2').addEventListener('change', (event) => {
+            console.log('radio 2 checked:', event.currentTarget.checked, 'value:', event.currentTarget.value);
+        }); 
+
+        // Задача 3
+        document.querySelector('.js-select').addEventListener('change', (event) => {
+            const select = event.currentTarget;
+            console.log('select value:', select.value);
+            console.log('select options:', select.options);
+            console.log('select selectedIndex:', select.selectedIndex);
+        });
     </script>
 </body>
 </html>

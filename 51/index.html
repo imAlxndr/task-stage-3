@@ -82,12 +82,54 @@
         const wrappers = document.querySelector('.items')
 
         document.querySelector('.js-button-1').addEventListener('click', () => {
+            // Создаем элементы
+            const item = document.createElement('div');
+            const itemBg = document.createElement('div');
+            const itemBody = document.createElement('div');
+            const itemName = document.createElement('h2');
+            const itemContent = document.createElement('p');
+            const itemFooter = document.createElement('div');
 
-        })
+            // Задаем классы
+            item.className = 'item';
+            itemBg.className = 'item__bg';
+            itemBody.className = 'item__body';
+            itemName.className = 'item__name';
+            itemContent.className = 'item__content';
+            itemFooter.className = 'item__footer';
+
+            // Задаем содержимое
+            itemName.textContent = 'Title 2';
+            itemContent.textContent = 'Content for new item';
+            itemFooter.textContent = 'Read More';
+
+            // Собираем структуру блока
+            itemBody.appendChild(itemName);
+            itemBody.appendChild(itemContent);
+            itemBody.appendChild(itemFooter);
+            item.appendChild(itemBg);
+            item.appendChild(itemBody);
+
+            // Добавляем блок в DOM
+            wrappers.appendChild(item);
+        });    
 
         document.querySelector('.js-button-2').addEventListener('click', () => {
+             // Создаем строку HTML
+             const itemHTML = `
+                <div class="item">
+                    <div class="item__bg"></div>
+                    <div class="item__body">
+                        <h2 class="item__name">Title 3</h2>
+                        <p class="item__content">Another content for new item</p>
+                        <div class="item__footer">Read More</div>
+                    </div>
+                </div>
+            `;
 
-        })
+            // Добавляем HTML в DOM
+            wrappers.insertAdjacentHTML('beforeend', itemHTML);
+        });        
     </script>
 </body>
 </html>

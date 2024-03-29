@@ -42,7 +42,13 @@
     </div>
 
     <script>
+        const tasksList = document.querySelector('.tasks');
 
+        tasksList.addEventListener('click', (event) => {
+            if (event.target.tagName === 'LI') {
+                event.target.classList.toggle('complete');
+            }
+        });
     </script>
 </body>
 </html>

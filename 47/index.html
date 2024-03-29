@@ -12,7 +12,31 @@
     <article>Поиск по тегу</article>
 
     <script>
+        // Поиск по ID
+        const elementById = document.getElementById('by-id');
+        console.log(elementById);
 
+        // Поиск по классу
+        const elementsByClass = document.getElementsByClassName('by-class');
+        console.log(elementsByClass);
+
+        // Поиск по тегу
+        const elementsByTag = document.getElementsByTagName('article');
+        console.log(elementsByTag);
+
+        // Поиск с помощью querySelector
+        const querySelectorById = document.querySelector('#by-id');
+        console.log(querySelectorById);
+
+        const querySelectorByClass = document.querySelector('.by-class');
+        console.log(querySelectorByClass);
+
+        const querySelectorByTag = document.querySelector('article');
+        console.log(querySelectorByTag);
+
+        // Поиск с помощью querySelectorAll
+        const querySelectorAllElements = document.querySelectorAll('#by-id, .by-class, article');
+        console.log(querySelectorAllElements);
     </script>
 </body>
 </html>

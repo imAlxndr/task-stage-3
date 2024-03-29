@@ -103,7 +103,57 @@
                 name: 'Название новости 5',
                 description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id explicabo quis asperiores fugiat quae sint doloremque qui atque vero illum iure nostrum nihil reprehenderit, blanditiis facilis magnam magni. Dicta, quidem.'
             }
-        ]
+        ];
+
+        const itemsContainer = document.querySelector('.items')
+
+        // Создание элементов через createElement
+        lists.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'item';
+
+            const itemBgDiv = document.createElement('div');
+            itemBgDiv.className = 'item__bg';
+
+            const itemBodyDiv = document.createElement('div');
+            itemBodyDiv.className = 'item__body';
+
+            const itemNameH2 = document.createElement('h2');
+            itemNameH2.className = 'item__name';
+            itemNameH2.textContent = item.name;
+
+            const itemContentP = document.createElement('p');
+            itemContentP.className = 'item__content';
+            itemContentP.textContent = item.description;
+
+            const itemFooterDiv = document.createElement('div');
+            itemFooterDiv.className = 'item__footer';
+            itemFooterDiv.textContent = 'Read More';
+
+            itemBodyDiv.appendChild(itemNameH2);
+            itemBodyDiv.appendChild(itemContentP);
+            itemBodyDiv.appendChild(itemFooterDiv);
+
+            itemDiv.appendChild(itemBgDiv);
+            itemDiv.appendChild(itemBodyDiv);
+
+            itemsContainer.appendChild(itemDiv);
+        });
+
+        // Создание элементов через insertAdjacentHTML
+        lists.forEach(item => {
+            const itemHTML = `
+                <div class="item">
+                    <div class="item__bg"></div>
+                    <div class="item__body">
+                        <h2 class="item__name">${item.name}</h2>
+                        <p class="item__content">${item.description}</p>
+                        <div class="item__footer">Read More</div>
+                    </div>
+                </div>
+            `;
+            itemsContainer.insertAdjacentHTML('beforeend', itemHTML);
+        });
 
     </script>
 </body>

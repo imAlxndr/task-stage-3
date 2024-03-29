@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Задание 66</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <ul class="js-list"></ul>
+<body class="page">
+    <div class="container">
 
-    <script type="module" src="./index.js"></script>
+        <div class="page__filters filters">
+            <select class="js-select">
+                <option selected disabled value="">Выберите категорию</option>
+            </select>
+            <input type="text" placeholder="Поиск" class="js-search">
+        </div>
+
+
+        <div class="products js-products">           
+        </div>
+    </div>
+
+    <script src="./index.js" type="module"></script>
+    <script src="./requests.js" type="module"></script>
+    <script src="./utils.js" type="module"></script>
 </body>
 </html>

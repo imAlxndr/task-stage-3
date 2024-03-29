@@ -114,7 +114,27 @@
         </form>
     </div>
     <script>
+        // Создаем элементы
+        const formCell = document.createElement('div');
+        const label = document.createElement('label');
+        const input = document.createElement('input');
 
+        // Задаем классы и атрибуты
+        formCell.className = 'form__cell';
+        label.className = 'label form__label';
+        label.htmlFor = 'email';
+        label.textContent = 'Email';
+        input.id = 'email';
+        input.className = 'input';
+        input.type = 'text';
+        input.placeholder = 'Email';
+        input.value = Math.random().toString(36).substring(2, 15);
+
+        formCell.append(label);
+        formCell.append(input);
+
+        const form = document.querySelector('.form');
+        form.insertBefore(formCell, form.querySelector('.form__footer'));
     </script>
 </body>
 </html>

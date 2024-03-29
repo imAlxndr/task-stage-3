@@ -42,7 +42,40 @@
         const input = document.querySelector('.js-input')
         const select = document.querySelector('.js-select')
 
+        // Получаем параметры из адресной строки
+        const hashParams = new URLSearchParams(window.location.hash.substr(1));
 
+        // Устанавливаем значения в поля формы
+        input.value = hashParams.get('text') || '';
+        select.value = hashParams.get('car_id') || '';
+
+        // Обработчик события изменения для input
+        input.addEventListener('change', (e) => {
+            hashParams.set('text', e.target.value);
+            window.location.hash = hashParams.toString();
+        });
+
+        // Обработчик события изменения для select
+        select.addEventListener('change', (e) => {
+            hashParams.set('car_id', e.target.value);
+            window.location.hash = hashParams.toString();
+        });
+
+        // 2 задача
+        const searchParams = new URLSearchParams(window.location.search);
+
+        input.value = searchParams.get('text') || '';
+        select.value = searchParams.get('car_id') || '';
+
+        input.addEventListener('change', (e) => {
+            searchParams.set('text', e.target.value);
+            window.location.search = searchParams.toString();
+        });
+
+        select.addEventListener('change', (e) => {
+            searchParams.set('car_id', e.target.value);
+            window.location.search = searchParams.toString();
+        });
 
     </script>
 </body>
